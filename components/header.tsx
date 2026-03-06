@@ -1,11 +1,24 @@
 "use client"
 
-import { Search, Wallet } from "lucide-react"
+import { Search, Wallet, Loader2 } from "lucide-react"
 import { useState } from "react"
 
 export function Header() {
   const [searchValue, setSearchValue] = useState("")
   const [isConnected, setIsConnected] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleConnect = async () => {
+    if (isConnected) {
+      setIsConnected(false)
+      return
+    }
+    setIsLoading(true)
+    // Simulate wallet connection delay
+    await new Promise((resolve) => setTimeout(resolve, 1500))
+    setIsLoading(false)
+    setIsConnected(true)
+  }
 
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-background/80 px-6 backdrop-blur-md">
@@ -30,16 +43,21 @@ export function Header() {
 
       {/* Connect Wallet Button */}
       <button
-        onClick={() => setIsConnected(!isConnected)}
-        className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all ${
+        onClick={handleConnect}
+        disabled={isLoading}
+        className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all disabled:cursor-not-allowed ${
           isConnected
             ? "border border-accent bg-accent/10 text-accent"
             : "bg-gradient-to-r from-primary to-[#7B2FD6] text-white hover:opacity-90"
         }`}
       >
-        <Wallet className="h-4 w-4" />
+        {isLoading ? (
+          <Loader2 className="h-4 w-4 animate-spin" />
+        ) : (
+          <Wallet className="h-4 w-4" />
+        )}
         <span className="hidden sm:inline">
-          {isConnected ? "0x1a2b...3c4d" : "Connect Wallet"}
+          {isLoading ? "Conectando..." : isConnected ? "0x1a2b...3c4d" : "Connect Wallet"}
         </span>
       </button>
     </header>

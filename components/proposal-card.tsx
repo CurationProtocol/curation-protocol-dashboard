@@ -32,7 +32,7 @@ export function ProposalCard({ proposal, onValidate, onReject }: ProposalCardPro
   const againstPercentage = totalVotes > 0 ? (proposal.votesAgainst / totalVotes) * 100 : 50
 
   return (
-    <div className="group relative flex flex-col gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
+    <div className="group relative flex flex-col gap-4 rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1 hover:bg-card/80">
       {/* Category Badge */}
       <div className="flex items-center justify-between">
         <span
