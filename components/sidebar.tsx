@@ -50,6 +50,30 @@ export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
         })}
       </nav>
 
+      {/* Solana Network Status Widget */}
+      <div className="w-full px-3 mb-4">
+        <div className="rounded-lg border border-border bg-secondary/50 p-3">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+            </span>
+            <span className="hidden text-xs font-medium text-accent lg:block">Solana Network</span>
+            <span className="lg:hidden text-xs font-medium text-accent">SOL</span>
+          </div>
+          <div className="space-y-1">
+            <div className="flex items-center justify-between">
+              <span className="hidden text-xs text-muted-foreground lg:block">TPS</span>
+              <span className="text-xs font-semibold text-foreground lg:ml-0 mx-auto lg:mx-0">2,400</span>
+            </div>
+            <div className="hidden lg:flex items-center justify-between">
+              <span className="text-xs text-muted-foreground">Finality</span>
+              <span className="text-xs font-semibold text-foreground">400ms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Post Content Button */}
       <div className="mt-auto w-full px-3">
         <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-accent px-4 py-3 text-sm font-semibold text-background transition-all hover:opacity-90 lg:justify-start">
