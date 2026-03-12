@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Sidebar } from "@/components/sidebar"
 import { Header } from "@/components/header"
 import { ProposalCard, type Proposal } from "@/components/proposal-card"
+import { MyVotes } from "@/components/my-votes"
 
 const mockProposals: Proposal[] = [
   {
@@ -176,8 +177,11 @@ export default function DashboardPage() {
             </div>
           )}
 
+          {/* My Votes Section */}
+          {activeTab === "votes" && <MyVotes />}
+
           {/* Placeholder for other tabs */}
-          {activeTab !== "explore" && (
+          {activeTab !== "explore" && activeTab !== "votes" && (
             <div className="flex h-64 items-center justify-center rounded-xl border border-dashed border-border">
               <p className="text-muted-foreground">
                 Sección en desarrollo...
