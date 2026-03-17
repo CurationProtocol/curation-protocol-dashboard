@@ -2,6 +2,7 @@
 
 import { Search, Wallet, Loader2 } from "lucide-react"
 import { useState } from "react"
+import Image from "next/image"
 
 export function Header() {
   const [searchValue, setSearchValue] = useState("")
@@ -22,10 +23,19 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-background/80 px-6 backdrop-blur-md">
-      {/* Title */}
-      <h1 className="text-xl font-bold text-foreground">
-        <span className="text-primary">Curation</span> Protocol
-      </h1>
+      {/* Logo and Title */}
+      <div className="flex items-center gap-3">
+        <Image
+          src="/images/curation-protocol-logo.png"
+          alt="Curation Protocol"
+          width={40}
+          height={40}
+          className="h-10 w-10"
+        />
+        <h1 className="hidden text-xl font-bold text-foreground sm:block">
+          <span className="text-primary">Curation</span> Protocol
+        </h1>
+      </div>
 
       {/* Search Bar */}
       <div className="hidden flex-1 max-w-xl mx-8 md:flex">
