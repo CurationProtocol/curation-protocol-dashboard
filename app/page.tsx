@@ -5,6 +5,8 @@ import { Sidebar } from "@/components/sidebar"
 import { Header } from "@/components/header"
 import { ProposalCard, type Proposal } from "@/components/proposal-card"
 import { MyVotes } from "@/components/my-votes"
+import { ActivityChart } from "@/components/activity-chart"
+import { Footer } from "@/components/footer"
 
 const mockProposals: Proposal[] = [
   {
