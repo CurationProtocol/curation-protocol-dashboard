@@ -13,10 +13,10 @@ export function ContentPreviewCard({ url }: ContentPreviewCardProps) {
 
   const mockData = {
     title: isTwitter
-      ? "Thread: "La revolución de Solana en 2026" by @solana"
+      ? 'Thread: "La revolución de Solana en 2026" by @solana'
       : isGithub
         ? "Repository: solana-program-library"
-        : "Article: "Understanding DeFi Protocol Design"",
+        : 'Article: "Understanding DeFi Protocol Design"',
     description: isTwitter
       ? "Thread analizando los últimos desarrollos de Solana y su impacto en el ecosistema Web3"
       : isGithub
