@@ -2,6 +2,8 @@
 
 import { Compass, Vote, Gift, BarChart3, Plus } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useState } from "react"
+import { SubmitContentModal } from "@/components/submit-content-modal"
 
 interface SidebarProps {
   activeTab: string
@@ -16,8 +18,12 @@ const navItems = [
 ]
 
 export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
-    <aside className="fixed left-0 top-0 z-40 flex h-screen w-20 flex-col items-center border-r border-border bg-sidebar py-6 lg:w-64">
+    <>
+      <SubmitContentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <aside className="fixed left-0 top-0 z-40 flex h-screen w-20 flex-col items-center border-r border-border bg-sidebar py-6 lg:w-64">
       {/* Logo */}
       <div className="mb-8 flex items-center gap-3 px-4">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary">
@@ -76,11 +82,15 @@ export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
 
       {/* Post Content Button */}
       <div className="mt-auto w-full px-3">
-        <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-accent px-4 py-3 text-sm font-semibold text-background transition-all hover:opacity-90 lg:justify-start">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-accent px-4 py-3 text-sm font-semibold text-background transition-all hover:opacity-90 lg:justify-start"
+        >
           <Plus className="h-5 w-5" />
           <span className="hidden lg:block">Postular Contenido</span>
         </button>
       </div>
     </aside>
+    </>
   )
 }
