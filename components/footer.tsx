@@ -12,11 +12,12 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <Image
-                src="/images/curation-protocol-logo.png"
+                src="/curation-protocol-logo.png"
                 alt="Curation Protocol"
                 width={32}
                 height={32}
                 className="h-8 w-8"
+                priority
               />
               <h3 className="font-bold text-foreground">
                 <span className="text-primary">Curation</span> Protocol

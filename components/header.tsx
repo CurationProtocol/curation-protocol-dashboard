@@ -26,11 +26,12 @@ export function Header() {
       {/* Logo and Title */}
       <div className="flex items-center gap-3">
         <Image
-          src="/images/curation-protocol-logo.png"
+          src="/curation-protocol-logo.png"
           alt="Curation Protocol"
           width={40}
           height={40}
           className="h-10 w-10"
+          priority
         />
         <h1 className="hidden text-xl font-bold text-foreground sm:block">
           <span className="text-primary">Curation</span> Protocol
