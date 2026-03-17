@@ -7,7 +7,8 @@ import { ProposalCard, type Proposal } from "@/components/proposal-card"
 import { MyVotes } from "@/components/my-votes"
 import { ActivityChart } from "@/components/activity-chart"
 import { Footer } from "@/components/footer"
-import { RewardsDashboard } from "@/components/rewards-dashboard"
+import { StatisticsDashboard } from "@/components/statistics-dashboard"
+import { RewardsSection } from "@/components/rewards-section"
 
 const mockProposals: Proposal[] = [
   {
@@ -184,10 +185,13 @@ export default function DashboardPage() {
           {activeTab === "votes" && <MyVotes />}
 
           {/* Rewards Section */}
-          {activeTab === "rewards" && <RewardsDashboard />}
+          {activeTab === "rewards" && <RewardsSection />}
+
+          {/* Statistics Section */}
+          {activeTab === "stats" && <StatisticsDashboard />}
 
           {/* Placeholder for other tabs */}
-          {activeTab !== "explore" && activeTab !== "votes" && activeTab !== "rewards" && (
+          {activeTab !== "explore" && activeTab !== "votes" && activeTab !== "rewards" && activeTab !== "stats" && (
             <div className="flex h-64 items-center justify-center rounded-xl border border-dashed border-border">
               <p className="text-muted-foreground">
                 Sección en desarrollo...
